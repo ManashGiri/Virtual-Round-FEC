@@ -8,7 +8,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api"
 function ReceiptForm({ user, onReceiptCreated }) {
   const [formData, setFormData] = useState({
     supplier: "",
-    warehouse: user.warehouse,
+    warehouse: "69215c2e96a6dce03cef8f6a",
     items: [{ product: "", quantityReceived: 0 }],
     notes: "",
   })
