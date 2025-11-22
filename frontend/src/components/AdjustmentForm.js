@@ -8,7 +8,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api"
 function AdjustmentForm({ user, onAdjustmentCreated }) {
   const [formData, setFormData] = useState({
     product: "",
-    warehouse: user.warehouse,
+    warehouse: "69215c2e96a6dce03cef8f6a",
     countedQuantity: 0,
     reason: "Counting Error",
     notes: "",
