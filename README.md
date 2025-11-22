@@ -185,12 +185,15 @@ GET /api/dashboard/kpis
 
 ---
 
-## 🙌 Contributerd
+## 🙌 Contributers
 
-Om Joshi
-Manash Giri
-Namisha Warang
-Nikunj Pandey
+*Om Joshi
+
+*Manash Giri
+
+*Namisha Warang
+
+*Nikunj Pandey
 
 ```
 
