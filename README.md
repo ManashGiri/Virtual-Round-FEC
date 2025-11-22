@@ -187,9 +187,9 @@ GET /api/dashboard/kpis
 
 ## 🙌 Contributers
 
-*Om Joshi
+*Om Joshi*
 
-*Manash Giri
+*Manash Giri*
 
 *Namisha Warang
 
