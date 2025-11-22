@@ -185,9 +185,12 @@ GET /api/dashboard/kpis
 
 ---
 
-## 🙌 Contributing
+## 🙌 Contributerd
 
-Pull requests are welcome!
+Om Joshi
+Manash Giri
+Namisha Warang
+Nikunj Pandey
 
 ```
 
