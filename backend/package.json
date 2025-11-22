@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
-  "author": "",
+  "author": "Manash Giri, Om Joshi, Nikunj Pandey, Namisha Warang",
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
