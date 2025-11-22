@@ -1,47 +1,110 @@
-# StockMaster - Inventory Management System
 
-A production-grade Inventory Management System built with the MERN stack (MongoDB, Express, React, Node.js).
+# 📦 StockMaster – Inventory Management System
 
-## Features
+**StockMaster** is a production-grade Inventory Management System (IMS) built using the **MERN stack** (MongoDB, Express.js, React.js, Node.js).  
+It digitizes and streamlines warehouse operations by replacing manual registers and Excel-based tracking with a centralized real-time platform.
 
-- **User Authentication**: Secure login/signup with Passport.js and OTP-based password reset
-- **Dashboard**: Real-time KPIs and inventory overview
-- **Product Management**: CRUD operations with multi-location stock tracking
-- **Stock Operations**:
-  - Receipts (incoming goods)
-  - Delivery Orders (outgoing goods)
-  - Internal Transfers between warehouses
-  - Stock Adjustments for discrepancies
-- **Move History**: Complete audit trail of all stock movements
-- **Real-time Updates**: Socket.IO for live notifications
-- **Role-Based Access**: Admin, Manager, and Staff roles
+---
 
-## Tech Stack
+## 🚀 Key Features
 
-**Backend:**
-- Node.js + Express.js
-- MongoDB + Mongoose
-- Passport.js for authentication
-- Socket.IO for real-time updates
-- Nodemailer for OTP emails
+### 🛡️ Authentication & Security
+- Secure Login/Signup using **Passport.js**
+- **Express-Session + MongoStore** session persistence
+- OTP-based password reset via email
+- Role-based access control (Admin / Manager / Staff)
 
-**Frontend:**
-- React.js
-- React Router for navigation
-- Axios for API calls
-- TailwindCSS for styling
+### 📊 Real-Time Dashboard KPIs
+- Total Stock & Product Count
+- Low Stock & Out-of-Stock Alerts
+- Pending Receipts / Deliveries / Internal Transfers
+- Dynamic filtering & search across locations and categories
 
-## Installation
+### 📦 Inventory Management
+- Product creation & modification
+- Multi-warehouse / multi-location stock tracking
+- Reorder level rules & alerts
+
+### 🔄 Stock Operations
+| Operation | Description |
+|----------|-------------|
+| Receipts | Add incoming goods and increase stock |
+| Delivery Orders | Remove stock for customer shipments |
+| Internal Transfers | Move stock between locations |
+| Stock Adjustments | Correct mismatches vs physical count |
+
+### 📝 Move History
+- Complete audit trail of all movements
+- Timestamp, user details, before/after quantity
+
+### ⚡ Real-Time Functionality
+- **Socket.IO** live updates & notifications
+
+---
+
+## 🛠️ Tech Stack
 
 ### Backend
+- Node.js + Express.js (JavaScript only)
+- MongoDB + Mongoose
+- Passport.js Authentication (Express-Session + MongoStore)
+- Socket.IO (real-time updates)
+- Nodemailer (OTP emails)
 
-\`\`\`bash
+### Frontend
+- React.js (JavaScript, not Next.js)
+- React Router v6
+- Axios for API communication
+- TailwindCSS for modern UI styling
+
+---
+
+## 📂 Project Structure
+
+```
+
+StockMaster/
+│
+├── backend/               # Express API
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── config/
+│   ├── middleware/
+│   ├── utils/
+│   └── server.js
+│
+└── frontend/              # React Application
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── context/
+│   ├── hooks/
+│   └── App.js
+└── public/
+
+````
+
+---
+
+## ⚙️ Installation & Setup
+
+### Clone the Repository
+```bash
+git clone https://github.com/yourusername/stockmaster.git
+cd stockmaster
+````
+
+### Backend Setup
+
+```bash
 cd backend
 npm install
-\`\`\`
+```
 
-Create `.env` file:
-\`\`\`
+Create a `.env` file:
+
+```
 MONGODB_URI=mongodb://localhost:27017/stockmaster
 SESSION_SECRET=your-secret-key
 NODE_ENV=development
@@ -51,61 +114,80 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASS=your-app-password
-\`\`\`
+```
 
-Start backend:
-\`\`\`bash
+Start backend server:
+
+```bash
 npm start
-\`\`\`
+```
 
-### Frontend
+### Frontend Setup
 
-\`\`\`bash
+```bash
 cd frontend
 npm install
 npm start
-\`\`\`
+```
 
-## Usage
+---
 
-1. Sign up or login with credentials
-2. Access the dashboard to view KPIs
-3. Manage products and warehouse stock
-4. Create receipts, deliveries, transfers, and adjustments
-5. View complete audit trail and history
-
-## API Endpoints
+## 🔌 API Endpoints
 
 ### Authentication
-- `POST /api/auth/signup` - Register user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/logout` - Logout user
-- `POST /api/auth/forgot-password` - Request OTP
-- `POST /api/auth/reset-password` - Reset password
 
-### Products
-- `GET /api/products` - Get all products
-- `POST /api/products` - Create product
-- `PUT /api/products/:id` - Update product
-- `DELETE /api/products/:id` - Delete product
+| Method | Endpoint                    | Description       |
+| ------ | --------------------------- | ----------------- |
+| POST   | `/api/auth/signup`          | Register new user |
+| POST   | `/api/auth/login`           | Login             |
+| GET    | `/api/auth/logout`          | Logout            |
+| POST   | `/api/auth/forgot-password` | Request OTP       |
+| POST   | `/api/auth/reset-password`  | Reset password    |
 
-### Operations
-- `POST /api/operations/receipts` - Create receipt
-- `GET /api/operations/receipts` - Get receipts
-- `PUT /api/operations/receipts/:id/accept` - Accept receipt
-- `POST /api/operations/deliveries` - Create delivery
-- `GET /api/operations/deliveries` - Get deliveries
-- `PUT /api/operations/deliveries/:id/ship` - Ship delivery
-- `POST /api/operations/transfers` - Create transfer
-- `GET /api/operations/transfers` - Get transfers
-- `PUT /api/operations/transfers/:id/receive` - Receive transfer
-- `POST /api/operations/adjustments` - Create adjustment
-- `GET /api/operations/adjustments` - Get adjustments
-- `GET /api/operations/history` - Get move history
+### Inventory & Operations
 
-### Dashboard
-- `GET /api/dashboard/kpis` - Get KPI metrics
+| Method | Endpoint                      | Description     |
+| ------ | ----------------------------- | --------------- |
+| GET    | `/api/products`               | All products    |
+| POST   | `/api/products`               | Create          |
+| PUT    | `/api/products/:id`           | Update          |
+| DELETE | `/api/products/:id`           | Delete          |
+| POST   | `/api/operations/receipts`    | Add receipt     |
+| POST   | `/api/operations/deliveries`  | Create delivery |
+| POST   | `/api/operations/transfers`   | Create transfer |
+| POST   | `/api/operations/adjustments` | Adjust stock    |
+| GET    | `/api/operations/history`     | History log     |
 
-## License
+### Dashboard Metrics
 
-MIT
+```
+GET /api/dashboard/kpis
+```
+
+---
+
+## ▶️ Usage
+
+1. Create an account or login
+2. Access real-time dashboard
+3. Add or manage products & warehouses
+4. Perform receipts, deliveries, transfers, adjustments
+5. Track everything through movement history
+
+---
+
+## 💡 Future Enhancements (Optional)
+
+* Mobile app with React Native
+* Barcode / QR Code scanning
+* Supplier / Customer modules
+* AI-based forecasting & auto-order suggestions
+
+---
+
+## 🙌 Contributing
+
+Pull requests are welcome!
+
+```
+
